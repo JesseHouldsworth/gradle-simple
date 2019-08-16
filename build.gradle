@@ -24,6 +24,11 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
+task copyDependencies(type: Copy) {
+   from configurations.compile   
+   into 'dependencies'
+}
+
 artifacts {
     archives sourcesJar
     archives javadocJar
